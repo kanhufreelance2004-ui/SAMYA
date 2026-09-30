@@ -1,0 +1,1 @@
+"# SAMYA"  initgit add README.mdgit commit -m "first commit"git branch -M maingit remote add origin https://github.com/kanhufreelance2004-ui/SAMYA.gitgit push -u origin main

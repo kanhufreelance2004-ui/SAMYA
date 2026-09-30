@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* ===== Custom Theme ===== */
+@theme {
+  --color-accent-50: #eef5ff;
+  --color-accent-100: #d9e8ff;
+  --color-accent-200: #bcd7ff;
+  --color-accent-300: #8ebeff;
+  --color-accent-400: #5999ff;
+  --color-accent-500: #3370ff;
+  --color-accent-600: #1b4ff5;
+  --color-accent-700: #143be1;
+  --color-accent-800: #1731b6;
+  --color-accent-900: #192e8f;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+}
+
+/* ===== Base ===== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-white text-slate-800 antialiased;
+  }
+
+  /* Skip Link */
+  .skip-link {
+    @apply absolute -top-full left-4 z-[100] px-4 py-2 bg-accent-600 text-white rounded-b-lg font-semibold text-sm;
+    transition: top 0.2s;
+  }
+  .skip-link:focus {
+    @apply top-0;
+  }
+}
+
+/* ===== Custom Animations ===== */
+@layer utilities {
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out both;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+}
